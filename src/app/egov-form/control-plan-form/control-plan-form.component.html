@@ -1,0 +1,51 @@
+<form [formGroup]="controlPlanForm">
+  <mat-form-field>
+    <mat-select formControlName="workType" placeholder="Art der Arbeiten"
+                [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+      <mat-option *ngFor="let workType of workTypeConst" [value]="workType">
+        {{workType}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="controlPlanForm?.value?.workType === workType.LOW_BUILDING
+                || controlPlanForm?.value?.workType === workType.HIGH_BUILDING">
+    <mat-select formControlName="workDescription"
+                placeholder="Nähere Beschreibung der Arbeiten"
+                [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+      <ng-container *ngIf="controlPlanForm?.value?.workType === workType.LOW_BUILDING">
+        <mat-option *ngFor="let lowBuildingType of lowBuildingTypeConst" [value]="lowBuildingType">
+          {{lowBuildingType}}
+        </mat-option>
+      </ng-container>
+
+      <ng-container *ngIf="controlPlanForm?.value?.workType === workType.HIGH_BUILDING">
+        <mat-option *ngFor="let highBuildingType of highBuildingTypeConst" [value]="highBuildingType">
+          {{highBuildingType}}
+        </mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field
+    *ngIf="controlPlanForm?.value?.workDescription === lowBuildingType.LOW_BUILDING_OTHER
+     ||controlPlanForm?.value?.workDescription === highBuildingType.HIGH_BUILDING_OTHER">
+    <input matInput placeholder="Bezeichnung" formControlName="workDescriptionName"
+           [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="controlPlanForm?.value?.workType === workType.RENEWAL">
+    <input matInput placeholder="Aktenzahl" formControlName="fileNumber"
+           [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="controlPlanForm?.value?.workType === workType.LOW_BUILDING">
+    <mat-select formControlName="lowBuildingDetailsType" placeholder="Angaben zu Tiefbauarbeiten"
+                [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+      <mat-option *ngFor="let lowBuildingDetailsType of lowBuildingDetailsTypeConst" [value]="lowBuildingDetailsType">
+        {{lowBuildingDetailsType}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</form>

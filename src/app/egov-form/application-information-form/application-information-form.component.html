@@ -1,0 +1,34 @@
+<form [formGroup]="applicationInformationForm">
+  <mat-form-field>
+    <input matInput formControlName="applicantName" [placeholder]="applicantNamePlaceholder"
+           [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="streetName" placeholder="Straße"
+           [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="houseNumber" placeholder="Hausnummer"
+           [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="zipCode" placeholder="PLZ"
+           [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="cityName" placeholder="Ort"
+           [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="countryName" placeholder="Staat"
+           [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="email" formControlName="email" placeholder="E-Mail"
+           [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="phoneNumber" placeholder="Telefonnummer"
+           [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+  </mat-form-field>
+</form>

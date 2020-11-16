@@ -12,12 +12,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "egov",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
+      "egov",
       "app",
       "kebab-case"
     ],

@@ -1,0 +1,27 @@
+<mat-horizontal-stepper [linear]="true">
+  <mat-step [stepControl]="applicantControl" label="Art des Antragstellers">
+    <mat-form-field>
+      <mat-select [formControl]="applicantControl" placeholder="Für wen wird der Antrag erstellt?"
+                  [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+        <mat-option *ngFor="let applicationType of applicationTypeConst" [value]="applicationType">
+          {{applicationType}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-step>
+
+  <mat-step [stepControl]="applicationInformationForm" label="Informationen des Antragstellers">
+    <egov-application-information-form [applicationInformationForm]="applicationInformationForm"
+                                       [applicantNamePlaceholder]="applicantNamePlaceholder"></egov-application-information-form>
+  </mat-step>
+
+  <mat-step [stepControl]="applicationCreatorForm" label="Antragsteller">
+    <egov-application-creator-form [applicationCreatorForm]="applicationCreatorForm"
+                                   [applicationType]="applicantControl?.value"></egov-application-creator-form>
+  </mat-step>
+
+  <mat-step [stepControl]="controlPlanForm" label="Regelplan">
+    <egov-control-plan-form [controlPlanForm]="controlPlanForm"></egov-control-plan-form>
+  </mat-step>
+
+</mat-horizontal-stepper>

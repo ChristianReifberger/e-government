@@ -1,0 +1,46 @@
+<form [formGroup]="applicationCreatorForm">
+  <mat-form-field>
+    <mat-select formControlName="applicationCreator" placeholder="Wer erstellt den Antrag?"
+                [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+      <mat-option *ngFor="let applicationCreatorType of filteredApplicationCreatorType"
+                  [value]="applicationCreatorType">
+        {{applicationCreatorType}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="applicationCreatorAddressSameAsApplicant">
+    Gleiche Adresse wie Antragsteller
+  </mat-checkbox>
+
+  <form formGroupName="applicationCreatorAddress" *ngIf="!!applicationCreatorForm?.value['applicationCreatorAddressSameAsApplicant']">
+    <mat-form-field>
+      <input matInput formControlName="streetName" placeholder="Straße"
+             [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="houseNumber" placeholder="Hausnummer"
+             [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="zipCode" placeholder="PLZ"
+             [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="cityName" placeholder="Ort"
+             [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="countryName" placeholder="Staat"
+             [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="email" formControlName="email" placeholder="E-Mail"
+             [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="phoneNumber" placeholder="Telefonnummer"
+             [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+    </mat-form-field>
+  </form>
+</form>
