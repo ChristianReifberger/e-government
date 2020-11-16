@@ -22,6 +22,14 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {ApplicationInformationFormComponent} from './egov-form/application-information-form/application-information-form.component';
 import {ApplicationCreatorFormComponent} from './egov-form/application-creator-form/application-creator-form.component';
 import {ControlPlanFormComponent} from './egov-form/control-plan-form/control-plan-form.component';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+// AoT requires an exported function for factories
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -35,6 +43,16 @@ import {ControlPlanFormComponent} from './egov-form/control-plan-form/control-pl
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'de',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
 
     MatButtonModule,
     MatInputModule,
@@ -48,8 +66,7 @@ import {ControlPlanFormComponent} from './egov-form/control-plan-form/control-pl
     MatTabsModule,
     MatDialogModule,
     MatButtonToggleModule,
-    MatStepperModule,
-    ReactiveFormsModule
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

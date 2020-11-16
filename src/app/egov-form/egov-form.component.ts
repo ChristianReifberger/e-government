@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ApplicationType} from './egov-form-const';
 import {environment} from '../../environments/environment';
+import {TranslateService} from '@ngx-translate/core';
 
 const DEFAULT_MUST_ENTER_APPLICATION_CREATOR_ADDRESS_VALUE = true;
 
@@ -22,13 +23,14 @@ export class EgovFormComponent {
   public get applicantNamePlaceholder(): string {
     const selectedApplicationType = this.applicantControl?.value;
     if (selectedApplicationType === ApplicationType.NATURAL_PERSON) {
-      return 'Name';
+      return this.translate.instant('EGOVFormComponent.ApplicantNamePlaceholder.Name');
     } else {
-      return 'Bezeichnung';
+      return this.translate.instant('EGOVFormComponent.ApplicantNamePlaceholder.Description');
     }
   }
 
-  constructor(private readonly formBuilder: FormBuilder) {
+  constructor(private readonly formBuilder: FormBuilder,
+              private readonly translate: TranslateService) {
     this.applicantControl = new FormControl(null, this.getValidatorsBasedOnDevelopmentMode());
 
     this.applicationInformationForm = this.formBuilder.group({

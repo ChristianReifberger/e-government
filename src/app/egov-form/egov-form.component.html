@@ -1,26 +1,26 @@
 <mat-horizontal-stepper [linear]="true">
-  <mat-step [stepControl]="applicantControl" label="Art des Antragstellers">
+  <mat-step [stepControl]="applicantControl" [label]="'EGOVFormComponent.Steps.ApplicantStep.Title' | translate">
     <mat-form-field>
-      <mat-select [formControl]="applicantControl" placeholder="Für wen wird der Antrag erstellt?"
+      <mat-select [formControl]="applicantControl" [placeholder]="'EGOVFormComponent.Steps.ApplicantStep.ApplicantControl' | translate"
                   [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
         <mat-option *ngFor="let applicationType of applicationTypeConst" [value]="applicationType">
-          {{applicationType}}
+          {{('TypeConst.ApplicationType.' + applicationType) | translate}}
         </mat-option>
       </mat-select>
     </mat-form-field>
   </mat-step>
 
-  <mat-step [stepControl]="applicationInformationForm" label="Informationen des Antragstellers">
+  <mat-step [stepControl]="applicationInformationForm" [label]="'EGOVFormComponent.Steps.ApplicantInformation.Title' | translate">
     <egov-application-information-form [applicationInformationForm]="applicationInformationForm"
                                        [applicantNamePlaceholder]="applicantNamePlaceholder"></egov-application-information-form>
   </mat-step>
 
-  <mat-step [stepControl]="applicationCreatorForm" label="Antragsteller">
+  <mat-step [stepControl]="applicationCreatorForm" [label]="'EGOVFormComponent.Steps.ApplicationCreator.Title' | translate">
     <egov-application-creator-form [applicationCreatorForm]="applicationCreatorForm"
                                    [applicationType]="applicantControl?.value"></egov-application-creator-form>
   </mat-step>
 
-  <mat-step [stepControl]="controlPlanForm" label="Regelplan">
+  <mat-step [stepControl]="controlPlanForm" [label]="'EGOVFormComponent.Steps.ControlPlan.Title' | translate">
     <egov-control-plan-form [controlPlanForm]="controlPlanForm"></egov-control-plan-form>
   </mat-step>
 
