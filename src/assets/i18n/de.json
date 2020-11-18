@@ -20,6 +20,9 @@
       },
       "ControlPlan": {
         "Title": "Regelplan"
+      },
+      "SectionsForm": {
+        "Title": "Baustellenabschnitte"
       }
     }
   },
@@ -34,6 +37,46 @@
     "FileNumber": "Aktenzahl",
     "LowBuildingDetailsType": "Angaben zu Tiefbauarbeiten"
   },
+  "SectionsFormComponent": {
+
+  },
+  "SectionsAdminDialogComponent": {
+    "Title": {
+      "CREATE": "Baustellenabschnitt hinzufügen",
+      "UPDATE": "Baustellenabschnitt bearbeiten"
+    },
+    "ConstructionSitePosition": {
+      "Label": "Ort der Baustelle",
+      "FormControls": {
+        "StreetName": "Straße (wenn vorhanden)",
+        "HouseNumber": "Hausnummer (wenn vorhanden)",
+        "ZipCode": "PLZ (wenn vorhanden)",
+        "CityName": "Ort (wenn vorhanden)",
+        "ReferencePoint": "Bezugspunkt/Straßenkilometer (wenn vorhanden)",
+        "OtherDescription": "Sonstiges Beschreibung"
+      }
+    },
+    "ConstructionDuration": {
+      "Label": "Dauer der Baustelle",
+      "FormControls": {
+        "ConstructionStart": "Baubeginn",
+        "ConstructionEnd": "Bauende",
+        "ConstructionDuration": "Dauer der Baustelle",
+        "ConstructionDurationType": "Einheit"
+      }
+    },
+    "ConstructionSiteType": "Situierung der Baustelle",
+    "ControlPlanAssignment": {
+      "Label": "Regelplanzuordnung"
+    },
+    "Actions": {
+      "Close": "Schließen",
+      "Save": {
+        "CREATE": "Erstellen",
+        "UPDATE": "Speichern"
+      }
+    }
+  },
   "TypeConst": {
     "ApplicationType": {
       "NATURAL_PERSON": "Natürliche Person",
@@ -45,6 +88,12 @@
       "PROFESSIONAL_REPRESENTANT": "Berufsmäßiger Parteienvertreter und berufe mich auf meine Vollmacht gemäß §10 AVG",
       "EMPLOYEE_OF_APPLICANT": "Ich bin Angestellter des Antragstellers und handle im Auftrag",
       "OTHER_REPRESENTANT": "Ich bin ein sonstiger Vertreter"
+    },
+    "GenerateApplicationCreatorType": {
+      "SELF": "Ich selbst",
+      "PROFESSIONAL_REPRESENTANT": "berufsmäßiger Parteienvertreter",
+      "EMPLOYEE_OF_APPLICANT": "Angestellter des Antragstellers",
+      "OTHER_REPRESENTANT": "sonstiger Vertreter"
     },
     "WorkType": {
       "LOW_BUILDING": "Tiefbau",
@@ -72,6 +121,14 @@
     "LowBuildingDetailsType": {
       "CLOSED": "Geschlossen",
       "OPEN": "Offen"
+    },
+    "ConstructionSiteType": {
+      "CITY_AREA": "Ortsgebiet",
+      "FREELAND": "Freiland"
+    },
+    "ConstructionDurationType": {
+      "HOURS": "Stunden",
+      "DAYS": "Tage"
     }
   },
   "Common": {

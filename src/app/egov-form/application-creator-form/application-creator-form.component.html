@@ -10,12 +10,17 @@
     </mat-select>
   </mat-form-field>
 
+  <mat-form-field>
+    <input matInput formControlName="applicationCreatorName" placeholder="Name"
+           [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">
+  </mat-form-field>
+
   <mat-checkbox formControlName="applicationCreatorAddressSameAsApplicant">
     {{'ApplicationCreatorFormComponent.ApplicationCreatorAddressSameAsApplicant' | translate}}
   </mat-checkbox>
 
   <form formGroupName="applicationCreatorAddress"
-        *ngIf="!!applicationCreatorForm?.value['applicationCreatorAddressSameAsApplicant']">
+        *ngIf="!applicationCreatorForm?.value['applicationCreatorAddressSameAsApplicant']">
     <mat-form-field>
       <input matInput formControlName="streetName" [placeholder]="'Common.Address.StreetName' | translate"
              [required]="!!getValidatorsBasedOnDevelopmentMode()?.length">

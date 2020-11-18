@@ -25,6 +25,10 @@ import {ControlPlanFormComponent} from './egov-form/control-plan-form/control-pl
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {SectionsFormComponent} from './egov-form/sections-form/sections-form.component';
+import {MatCardModule} from '@angular/material/card';
+import {SectionsAdminDialogComponent} from './egov-form/sections-form/sections-admin-dialog/sections-admin-dialog.component';
+import {GenerateNoticeService} from './services/generate-notice.service';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -38,7 +42,9 @@ export function createTranslateLoader(http: HttpClient) {
     EgovFormComponent,
     ApplicationInformationFormComponent,
     ApplicationCreatorFormComponent,
-    ControlPlanFormComponent
+    ControlPlanFormComponent,
+    SectionsFormComponent,
+    SectionsAdminDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +60,7 @@ export function createTranslateLoader(http: HttpClient) {
       }
     }),
 
+    MatCardModule,
     MatButtonModule,
     MatInputModule,
     MatAutocompleteModule,
@@ -68,7 +75,7 @@ export function createTranslateLoader(http: HttpClient) {
     MatButtonToggleModule,
     MatStepperModule
   ],
-  providers: [],
+  providers: [GenerateNoticeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

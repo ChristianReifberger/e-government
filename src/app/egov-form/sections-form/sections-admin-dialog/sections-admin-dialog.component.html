@@ -1,0 +1,165 @@
+<h2 mat-dialog-title>{{('SectionsAdminDialogComponent.Title.' + dialogType) | translate}}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="constructionSectionForm">
+    <mat-tab-group>
+      <mat-tab [label]="'SectionsAdminDialogComponent.ConstructionSitePosition.Label' | translate">
+        <form formGroupName="constructionSitePosition">
+          <mat-form-field>
+            <input matInput formControlName="streetName"
+                   [placeholder]="'SectionsAdminDialogComponent.ConstructionSitePosition.FormControls.StreetName' | translate">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput formControlName="houseNumber"
+                   [placeholder]="'SectionsAdminDialogComponent.ConstructionSitePosition.FormControls.HouseNumber' | translate">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput formControlName="zipCode"
+                   [placeholder]="'SectionsAdminDialogComponent.ConstructionSitePosition.FormControls.ZipCode' | translate">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput formControlName="cityName"
+                   [placeholder]="'SectionsAdminDialogComponent.ConstructionSitePosition.FormControls.CityName' | translate">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput formControlName="referencePoint"
+                   [placeholder]="'SectionsAdminDialogComponent.ConstructionSitePosition.FormControls.ReferencePoint' | translate">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput formControlName="otherDescription"
+                   [placeholder]="'SectionsAdminDialogComponent.ConstructionSitePosition.FormControls.OtherDescription' | translate">
+          </mat-form-field>
+        </form>
+        <mat-form-field>
+          <mat-select formControlName="constructionSiteType"
+                      [placeholder]="'SectionsAdminDialogComponent.ConstructionSiteType' | translate"
+                      [required]="true">
+            <mat-option *ngFor="let constructionSiteType of constructionSiteTypeConst" [value]="constructionSiteType">
+              {{('TypeConst.ConstructionSiteType.' + constructionSiteType) | translate}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-tab>
+      <mat-tab [label]="'SectionsAdminDialogComponent.ConstructionDuration.Label' | translate">
+        <form formGroupName="constructionDuration">
+          <mat-form-field>
+            <input matInput formControlName="constructionStart"
+                   [placeholder]="'SectionsAdminDialogComponent.ConstructionDuration.FormControls.ConstructionStart' | translate"
+                   [required]="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput formControlName="constructionEnd"
+                   [placeholder]="'SectionsAdminDialogComponent.ConstructionDuration.FormControls.ConstructionEnd' | translate"
+                   [required]="true">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput formControlName="constructionDuration"
+                   [placeholder]="'SectionsAdminDialogComponent.ConstructionDuration.FormControls.ConstructionDuration' | translate"
+                   [required]="true">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select formControlName="constructionDurationType"
+                        [placeholder]="'SectionsAdminDialogComponent.ConstructionDuration.FormControls.ConstructionDurationType' | translate"
+                        [required]="true">
+              <mat-option *ngFor="let constructionDurationType of constructionDurationTypeConst"
+                          [value]="constructionDurationType">
+                {{('TypeConst.ConstructionDurationType.' + constructionDurationType) | translate}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </mat-tab>
+      <mat-tab [label]="'SectionsAdminDialogComponent.ControlPlanAssignment.Label' | translate">
+        <form formGroupName="controlPlanAssignment">
+          <form formGroupName="questionsRuleplanL">
+            <mat-form-field>
+              <mat-select formControlName="noNarrowingOfDriveWay" placeholder="Ohne Einengung des Fahrstreifens?">
+                <mat-option [value]="true">Ja</mat-option>
+                <mat-option [value]="false">Nein</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field *ngIf="showSmallNarrowingOfDriveWay">
+              <mat-select formControlName="smallNarrowingOfDriveWay"
+                          placeholder="Mit geringer Einengung des Fahrstreifens (Restfahrbahnbreite min. 5,5m)?">
+                <mat-option [value]="true">Ja</mat-option>
+                <mat-option [value]="false">Nein</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="showLockingOfDriveWayAndWaitObligation">
+              <mat-select formControlName="lockingOfDriveWayAndWaitObligation"
+                          placeholder="Sperre eines Fahrstreifens (Restfahrbahnbreite min. 2,75m) und Regelung mittels Wartepflicht?">
+                <mat-option [value]="true">Ja</mat-option>
+                <mat-option [value]="false">Nein</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="showLockingOfDriveWayAndVLSARule">
+              <mat-select formControlName="lockingOfDriveWayAndVLSARule"
+                          placeholder="Sperre eines Fahrstreifens (Restfahrbahnbreite min. 2,75m) und Regelung mittels VLSA?">
+                <mat-option [value]="true">Ja</mat-option>
+                <mat-option [value]="false">Nein</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="showBothDriveWaysDisabledAndWorkWhileTraffic">
+              <mat-select formControlName="bothDriveWaysDisabledAndWorkWhileTraffic"
+                          placeholder="Behinderung beider Fahrstreifen und Arbeiten unter Verkehr?">
+                <mat-option [value]="true">Ja</mat-option>
+                <mat-option [value]="false">Nein</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="showWorkInBranchedOffRoad">
+              <mat-select formControlName="workInBranchedOffRoad"
+                          placeholder="Arbeiten in der abzweigenden Straße?">
+                <mat-option [value]="true">Ja</mat-option>
+                <mat-option [value]="false">Nein</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+        </form>
+      </mat-tab>
+      <mat-tab label="Zusatzfragen">
+        <form formGroupName="controlPlanAssignment">
+          <form formGroupName="questionsRuleplanGR">
+            <mat-form-field>
+              <mat-select formControlName="narrowingAllowsForContinuedTraffic"
+                          placeholder="Die Einengung der Anlage ermöglicht dennoch eine Verkehrsführung auf Bestand?">
+                <mat-option [value]="true">Ja</mat-option>
+                <mat-option [value]="false">Nein</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="showSplitting">
+              <mat-select formControlName="splitting"
+                          placeholder="Trennung der Geh- und Radweganlage, Radfahrer im Mischverkehr oder innerhalb einer Absperrung?">
+                <mat-option [value]="true">Ja</mat-option>
+                <mat-option [value]="false">Nein</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="showMovingOfDriveWays">
+              <mat-select formControlName="movingOfDriveWays"
+                          placeholder="Verlegung der Geh- und Radweganlage?">
+                <mat-option [value]="true">Ja</mat-option>
+                <mat-option [value]="false">Nein</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>
+    {{'SectionsAdminDialogComponent.Actions.Close' | translate}}
+  </button>
+  <button mat-raised-button color="primary"
+          [disabled]="constructionSectionForm.invalid"
+          (click)="onSave()">
+    {{('SectionsAdminDialogComponent.Actions.Save.' + dialogType) | translate}}
+  </button>
+</mat-dialog-actions>

@@ -1,3 +1,5 @@
+import {FormControl} from '@angular/forms';
+
 export enum ApplicationType {
   NATURAL_PERSON = 'NATURAL_PERSON',
   LAWFUL_PERSON = 'LAWFUL_PERSON',
@@ -40,4 +42,126 @@ export enum HighBuildingType {
 export enum LowBuildingDetailsType {
   CLOSED = 'CLOSED',
   OPEN = 'OPEN'
+}
+
+export enum ConstructionSiteType {
+  CITY_AREA = 'CITY_AREA',
+  FREELAND = 'FREELAND'
+}
+
+export interface ConstructionSection {
+  constructionSitePosition: ConstructionSitePosition;
+  constructionDuration: ConstructionDuration;
+  constructionSiteType: ConstructionSiteType;
+  controlPlanAssignment: ControlPlanAssignment;
+}
+
+export interface ConstructionSitePosition {
+  streetName?: string;
+  houseNumber?: string;
+  zipCode?: string;
+  cityName?: string;
+  referencePoint?: string;
+  otherDescription?: string;
+}
+
+export interface ConstructionDuration {
+  constructionStart: number;
+  constructionEnd: number;
+  constructionDuration: number;
+  constructionDurationType: ConstructionDurationType;
+}
+
+export enum ConstructionDurationType {
+  HOURS = 'HOURS',
+  DAYS = 'DAYS'
+}
+
+export interface ControlPlanAssignment {
+  questionsRuleplanL: {
+    noNarrowingOfDriveWay: boolean;
+    smallNarrowingOfDriveWay?: boolean;
+    lockingOfDriveWayAndWaitObligation?: boolean;
+    lockingOfDriveWayAndVLSARule?: boolean;
+    bothDriveWaysDisabledAndWorkWhileTraffic?: boolean;
+    workInBranchedOffRoad?: boolean;
+  };
+  questionsRuleplanGRNeeded: boolean;
+  questionsRuleplanGR: {
+    narrowingAllowsForContinuedTraffic: boolean;
+    splitting?: boolean;
+    movingOfDriveWays?: boolean;
+  };
+  questionsMotorTrafficAffectedNeeded: boolean;
+  questionsMotorTrafficAffectedState?: MotorTrafficAffectedState;
+
+  questionsIntersectionAffectedNeeded: boolean;
+  questionsIntersectionAffectedState?: IntersectionAffectedState;
+}
+
+export enum MotorTrafficAffectedState {
+  LOW_AFFECTED = 'LOW_AFFECTED',
+  HIGH_AFFECTED = 'HIGH_AFFECTED'
+}
+
+export enum IntersectionAffectedState {
+  NO_SPECIAL_RULES = 'NO_SPECIAL_RULES',
+  VLSA_RULES = 'VLSA_RULES'
+}
+
+export interface ApplicationInformation {
+  applicantName: string;
+  streetName: string;
+  houseNumber: string;
+  zipCode: string;
+  cityName: string;
+  countryName: string;
+  email: string;
+  phoneNumber: string;
+}
+
+export interface ApplicationCreator {
+  applicationCreator: string;
+  applicationCreatorName: string;
+  applicationCreatorAddressSameAsApplicant: boolean;
+  applicationCreatorAddress: {
+    streetName: string;
+    houseNumber: string;
+    zipCode: string;
+    cityName: string;
+    countryName: string;
+    email: string;
+    phoneNumber: string
+  };
+}
+
+export interface ControlPlan {
+  workType: WorkType;
+  workDescription: LowBuildingType | HighBuildingType | null;
+
+  // Only if workDescription = LowBuildingType.LOW_BUILDING_OTHER or workDescription = HighBuildingType.HIGH_BUILDING_OTHER
+  workDescriptionName: string;
+  // Only if workType = WorkType.RENEWAL
+  fileNumber: string;
+  // Only if workType = WorkType.LOW_BUILDING
+  lowBuildingDetailsType: LowBuildingDetailsType;
+}
+
+export interface ConstructionOfficer {
+  name: string;
+  email: string;
+  phoneNumber: string;
+}
+
+export enum RuleplanL {
+  L1, L2, L3, L4, L5, L6
+}
+
+export interface GenerateNoticeParameters {
+  applicationType: ApplicationType;
+  applicationInformation: ApplicationInformation;
+  applicationCreator: ApplicationCreator;
+  controlPlan: ControlPlan;
+  sections: ConstructionSection[];
+  constructionOfficer: ConstructionOfficer;
 }

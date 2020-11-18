@@ -24,4 +24,32 @@
     <egov-control-plan-form [controlPlanForm]="controlPlanForm"></egov-control-plan-form>
   </mat-step>
 
+  <mat-step [stepControl]="sectionsControl" [label]="'EGOVFormComponent.Steps.SectionsForm.Title' | translate">
+    <egov-sections-form [sectionsControl]="sectionsControl"></egov-sections-form>
+  </mat-step>
+
+  <mat-step label="Verantwortlicher Bauleiter">
+    <form [formGroup]="constructionOfficerForm">
+      <mat-form-field>
+        <input matInput formControlName="name"
+               placeholder="Name"
+               [required]="true">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="email"
+               placeholder="E-Mail"
+               [required]="true">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="phoneNumber"
+               placeholder="Mobiltelefon"
+               [required]="true">
+      </mat-form-field>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <button mat-raised-button color="primary" (click)="generateNotice()">Bescheid generieren</button>
+  </mat-step>
+
 </mat-horizontal-stepper>

@@ -1,0 +1,22 @@
+<div class="sections-form-title-container">
+  <h2>Baustellenabschnitte</h2>
+  <div class="spacer"></div>
+  <button mat-raised-button color="primary" (click)="openAddSectionDialog()">Baustellenabschnitt hinzufügen</button>
+</div>
+
+<ng-container *ngIf="!!visibleSections?.size; else noSections">
+  <mat-card *ngFor="let section of visibleSections">
+    <mat-card-header>
+      <mat-card-title>
+        Baustellenabschnitt #1
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      Baustellenabschnitt
+    </mat-card-content>
+  </mat-card>
+</ng-container>
+
+<ng-template #noSections>
+  <p>Bitte fügen Sie mindestens einen Baustellenabschnitt hinzu!</p>
+</ng-template>
