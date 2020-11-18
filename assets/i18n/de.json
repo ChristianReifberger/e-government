@@ -1,0 +1,145 @@
+{
+  "LandingPageComponent": {
+    "Title": "E-Government"
+  },
+  "EGOVFormComponent": {
+    "ApplicantNamePlaceholder": {
+      "Name": "Name",
+      "Description": "Bezeichnung"
+    },
+    "Steps": {
+      "ApplicantStep": {
+        "Title": "Art des Antragstellers",
+        "ApplicantControl": "Für wen wird der Antrag erstellt?"
+      },
+      "ApplicantInformation": {
+        "Title": "Informationen des Antragstellers"
+      },
+      "ApplicationCreator": {
+        "Title": "Antragsteller"
+      },
+      "ControlPlan": {
+        "Title": "Regelplan"
+      },
+      "SectionsForm": {
+        "Title": "Baustellenabschnitte"
+      }
+    }
+  },
+  "ApplicationCreatorFormComponent": {
+    "ApplicationCreator": "Wer erstellt den Antrag?",
+    "ApplicationCreatorAddressSameAsApplicant": "Gleiche Adresse wie Antragsteller"
+  },
+  "ControlPlanFormComponent": {
+    "WorkType": "Art der Arbeiten",
+    "WorkDescription": "Nähere Beschreibung der Arbeiten",
+    "WorkDescriptionName": "Bezeichnung",
+    "FileNumber": "Aktenzahl",
+    "LowBuildingDetailsType": "Angaben zu Tiefbauarbeiten"
+  },
+  "SectionsFormComponent": {
+
+  },
+  "SectionsAdminDialogComponent": {
+    "Title": {
+      "CREATE": "Baustellenabschnitt hinzufügen",
+      "UPDATE": "Baustellenabschnitt bearbeiten"
+    },
+    "ConstructionSitePosition": {
+      "Label": "Ort der Baustelle",
+      "FormControls": {
+        "StreetName": "Straße (wenn vorhanden)",
+        "HouseNumber": "Hausnummer (wenn vorhanden)",
+        "ZipCode": "PLZ (wenn vorhanden)",
+        "CityName": "Ort (wenn vorhanden)",
+        "ReferencePoint": "Bezugspunkt/Straßenkilometer (wenn vorhanden)",
+        "OtherDescription": "Sonstiges Beschreibung"
+      }
+    },
+    "ConstructionDuration": {
+      "Label": "Dauer der Baustelle",
+      "FormControls": {
+        "ConstructionStart": "Baubeginn",
+        "ConstructionEnd": "Bauende",
+        "ConstructionDuration": "Dauer der Baustelle",
+        "ConstructionDurationType": "Einheit"
+      }
+    },
+    "ConstructionSiteType": "Situierung der Baustelle",
+    "ControlPlanAssignment": {
+      "Label": "Regelplanzuordnung"
+    },
+    "Actions": {
+      "Close": "Schließen",
+      "Save": {
+        "CREATE": "Erstellen",
+        "UPDATE": "Speichern"
+      }
+    }
+  },
+  "TypeConst": {
+    "ApplicationType": {
+      "NATURAL_PERSON": "Natürliche Person",
+      "LAWFUL_PERSON": "Juristische Person",
+      "PERSON_CORPORATION": "Personengesellschaft"
+    },
+    "ApplicationCreatorType": {
+      "SELF": "Ich selbst",
+      "PROFESSIONAL_REPRESENTANT": "Berufsmäßiger Parteienvertreter und berufe mich auf meine Vollmacht gemäß §10 AVG",
+      "EMPLOYEE_OF_APPLICANT": "Ich bin Angestellter des Antragstellers und handle im Auftrag",
+      "OTHER_REPRESENTANT": "Ich bin ein sonstiger Vertreter"
+    },
+    "GenerateApplicationCreatorType": {
+      "SELF": "Ich selbst",
+      "PROFESSIONAL_REPRESENTANT": "berufsmäßiger Parteienvertreter",
+      "EMPLOYEE_OF_APPLICANT": "Angestellter des Antragstellers",
+      "OTHER_REPRESENTANT": "sonstiger Vertreter"
+    },
+    "WorkType": {
+      "LOW_BUILDING": "Tiefbau",
+      "HIGH_BUILDING": "Hochbau",
+      "RENEWAL": "Verlängerung"
+    },
+    "LowBuildingType": {
+      "EXCAVATION_WORK": "Aufgrabungsarbeiten",
+      "CABLE_WORK": "Kabelarbeiten",
+      "NEW_BUILDING": "Neubau",
+      "PIPELINE_WORK": "Rohrleitungsarbeiten",
+      "STREET_BUILDING": "Straßenbauarbeiten",
+      "LOW_BUILDING_OTHER": "Sonstiges"
+    },
+    "HighBuildingType": {
+      "PUBLIC_LIGHTING": "Arbeiten an der öffentlichen Beleuchtung",
+      "FACADE_WORK": "Fassadenarbeiten",
+      "NO_STOPPING": "Halteverbot",
+      "HOUSE_DEMOLITION": "Hausabbruch",
+      "LIFTING_WORK_CRANE": "Hebearbeiten mittels Autokran",
+      "APARTMENT_OR_STORE_MODIFICATION": "Umbau einer/s Wohnung/Geschäfts",
+      "TWO_STORY_EXTENSION": "Zweigeschossiger Ausbau",
+      "HIGH_BUILDING_OTHER": "Sonstiges"
+    },
+    "LowBuildingDetailsType": {
+      "CLOSED": "Geschlossen",
+      "OPEN": "Offen"
+    },
+    "ConstructionSiteType": {
+      "CITY_AREA": "Ortsgebiet",
+      "FREELAND": "Freiland"
+    },
+    "ConstructionDurationType": {
+      "HOURS": "Stunden",
+      "DAYS": "Tage"
+    }
+  },
+  "Common": {
+    "Address": {
+      "StreetName": "Straße",
+      "HouseNumber": "Hausnummer",
+      "ZipCode": "PLZ",
+      "CityName": "Ort",
+      "CountryName": "Staat"
+    },
+    "EMail": "E-Mail",
+    "PhoneNumber": "Telefonnummer"
+  }
+}
