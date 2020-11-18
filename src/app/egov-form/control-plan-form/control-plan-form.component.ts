@@ -24,7 +24,7 @@ export class ControlPlanFormComponent {
   public readonly lowBuildingDetailsTypeConst = Object.keys(LowBuildingDetailsType);
 
   public getValidatorsBasedOnDevelopmentMode() {
-    return environment.production ? [Validators.required] : [];
+    return environment.production ? [] : [];
   }
 
 }

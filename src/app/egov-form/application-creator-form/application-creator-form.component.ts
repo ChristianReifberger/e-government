@@ -23,7 +23,7 @@ export class ApplicationCreatorFormComponent {
   }
 
   public getValidatorsBasedOnDevelopmentMode() {
-    return environment.production ? [Validators.required] : [];
+    return environment.production ? [] : [];
   }
 
 }

@@ -14,7 +14,7 @@ export class ApplicationInformationFormComponent {
   @Input() applicantNamePlaceholder: string;
 
   public getValidatorsBasedOnDevelopmentMode() {
-    return environment.production ? [Validators.required] : [];
+    return environment.production ? [] : [];
   }
 
 }

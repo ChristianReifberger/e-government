@@ -105,7 +105,7 @@ export class EgovFormComponent {
   public readonly applicationTypeConst = Object.keys(ApplicationType);
 
   public getValidatorsBasedOnDevelopmentMode() {
-    return environment.production ? [Validators.required] : [];
+    return environment.production ? [] : [];
   }
 
   public generateNotice() {
