@@ -76,7 +76,7 @@ export class GenerateNoticeService {
   }
 
   public generateNotice(parameters: GenerateNoticeParameters) {
-    PizZipUtils.getBinaryContent('/assets/notice/Bescheid.docx', (error, content) => {
+    PizZipUtils.getBinaryContent('https://christianreifberger.github.io/e-government/assets/notice/Bescheid.docx', (error, content) => {
       if (error) {
         throw error;
       }
