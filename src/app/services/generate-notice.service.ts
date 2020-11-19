@@ -8,6 +8,7 @@ import {
   WorkType
 } from '../egov-form/egov-form-const';
 import {TranslateService} from '@ngx-translate/core';
+import {environment} from '../../environments/environment';
 
 declare var PizZip;
 declare var PizZipUtils;
@@ -76,7 +77,7 @@ export class GenerateNoticeService {
   }
 
   public generateNotice(parameters: GenerateNoticeParameters) {
-    PizZipUtils.getBinaryContent('https://christianreifberger.github.io/e-government/assets/notice/Bescheid.docx', (error, content) => {
+    PizZipUtils.getBinaryContent(environment.bescheidURL, (error, content) => {
       if (error) {
         throw error;
       }
